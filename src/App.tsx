@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Tasks from './components/Tasks/tasks';
 import sessionDefault from './interfaces/defaultConst';
 
+
 function App() {
   const [session, setSession] = useState(sessionDefault);
   const [isSession, setIsSession] = useState(false);

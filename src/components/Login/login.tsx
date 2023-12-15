@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { client } from '../../supabase/client';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Login() {
   const [email, setEmail] = useState('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await client.auth.signInWithOtp({
+      const toastId = toast.loading('Sending link to your email!');
+      await client.auth.signInWithOtp({
         email: email,
       });
-      console.log(response);
+      toast.success('Send it', {
+        id: toastId,
+      });
     } catch (e) {
       console.error(e);
     }
@@ -42,6 +46,7 @@ function Login() {
             </div>
           </form>
         </div>
+        <Toaster />
       </div>
     </>
   );
