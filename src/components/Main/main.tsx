@@ -11,7 +11,7 @@ function Main({ title, children }: { title: string; children?: ReactNode }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <main>
+      <main className="h-screen">
         <Nav />
         {children ? children : <></>}
       </main>
