@@ -11,7 +11,7 @@ function Login() {
       await client.auth.signInWithOtp({
         email: email,
       });
-      toast.success('Send it', {
+      toast.success('It has been send', {
         id: toastId,
       });
     } catch (e) {
