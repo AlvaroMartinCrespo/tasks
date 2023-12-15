@@ -6,7 +6,7 @@ function Main({ title, children }: { title: string; children?: ReactNode }) {
   return (
     <>
       <head>
-        <title>{title}</title>
+        <title>{title ? title : 'Tasks'}</title>
         {/* Tags Seo */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

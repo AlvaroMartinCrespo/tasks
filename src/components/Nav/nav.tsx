@@ -40,7 +40,6 @@ function Nav() {
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
-              <span className="sr-only">Open main menu</span>
               {!isOpen ? (
                 <svg
                   className="block h-6 w-6"
