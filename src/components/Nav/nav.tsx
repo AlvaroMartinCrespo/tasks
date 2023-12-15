@@ -13,7 +13,9 @@ function Nav() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-white text-lg font-semibold">Logo</span>
+              <span className="text-white text-lg font-semibold">
+                <img className="h-8" src="/task.png" alt="" />
+              </span>
             </div>
           </div>
           <div className="hidden md:flex items-center">
@@ -25,15 +27,9 @@ function Nav() {
             </a>
             <a
               href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              About
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Services
+              Home
             </a>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -86,13 +82,7 @@ function Nav() {
               href="#"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              About
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Services
+              Home
             </a>
           </div>
         </div>
