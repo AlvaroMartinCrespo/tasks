@@ -15,6 +15,8 @@ function Login() {
         id: toastId,
       });
     } catch (e) {
+      toast.remove();
+      toast.error("This dind't work");
       console.error(e);
     }
   };

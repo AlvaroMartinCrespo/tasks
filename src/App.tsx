@@ -6,15 +6,14 @@ import { useState } from 'react';
 import Tasks from './components/Tasks/tasks';
 import sessionDefault from './interfaces/defaultConst';
 
-
 function App() {
-  const [session, setSession] = useState(sessionDefault);
+  const [sessionState, setSessionState] = useState(sessionDefault);
   const [isSession, setIsSession] = useState(false);
 
   client.auth.onAuthStateChange((_event, session) => {
-    setSession(session);
+    setSessionState(session ?? sessionDefault);
 
-    if (session) {
+    if (sessionState?.access_token !== '') {
       setIsSession(true);
     }
   });
@@ -23,8 +22,8 @@ function App() {
     <>
       <Main isSession={isSession} title="Login">
         <section>
-          {session ? (
-            <Tasks session={session} />
+          {sessionState.access_token ? (
+            <Tasks session={sessionState} />
           ) : (
             <>
               <Login />
