@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { client } from '../../supabase/client';
 
-function Nav() {
+function Nav({ isSession }: { isSession: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+  };
+
+  const logout = async () => {
+    await client.auth.signOut();
   };
 
   return (
@@ -19,18 +24,18 @@ function Nav() {
             </div>
           </div>
           <div className="hidden md:flex items-center">
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Home
-            </a>
+            {isSession ? (
+              <>
+                <button
+                  onClick={logout}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  LogOut
+                </button>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
@@ -71,18 +76,18 @@ function Nav() {
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Home
-            </a>
+            {isSession ? (
+              <>
+                <button
+                  onClick={logout}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  LogOut
+                </button>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       )}
