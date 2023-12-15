@@ -1,22 +1,12 @@
-import { useState } from 'react';
-import Login from './components/login/login';
-import MainPage from './components/mainPage/mainPage';
 import './App.css';
+import Main from './components/Main/main';
 
 function App() {
-  const [user, setUser] = useState(false);
-
   return (
     <>
-      {!user ? (
-        <>
-          <Login setUser={setUser} />
-        </>
-      ) : (
-        <>
-          <MainPage setUser={setUser} />
-        </>
-      )}
+      <Main title={'Tasks'}>
+        <h1>Tasks</h1>
+      </Main>
     </>
   );
 }
