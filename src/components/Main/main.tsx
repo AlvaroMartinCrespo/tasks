@@ -1,19 +1,23 @@
 import Nav from '../Nav/nav';
 import Footer from '../Footer/footer';
+import { ReactNode } from 'react';
 
-export default function Main({ title, children }) {
-  <>
-    <head>
-      <title>{title}</title>
-      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-      {/* Tags Seo */}
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <main>
-      <Nav />
-      {children ? children : <></>}
-    </main>
-    <Footer />
-  </>;
+function Main({ title, children }: { title: string; children?: ReactNode }) {
+  return (
+    <>
+      <head>
+        <title>{title}</title>
+        {/* Tags Seo */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <main>
+        <Nav />
+        {children ? children : <></>}
+      </main>
+      <Footer />
+    </>
+  );
 }
+
+export default Main;
