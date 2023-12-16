@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Main isSession={isSession} title="Login">
+      <Main isSession={isSession} title="Tasks">
         <section>
           {sessionState.access_token ? (
             <Tasks session={sessionState} />
