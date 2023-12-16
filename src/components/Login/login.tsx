@@ -24,7 +24,7 @@ function Login() {
     <>
       <div className="flex items-center justify-center min-h-screen bg-gray-100 p-10">
         <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
-          <h2 className="text-2xl font-semibold mb-6 text-center">Login with Magic Link</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
