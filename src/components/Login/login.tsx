@@ -7,7 +7,7 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const toastId = toast.loading('Sending link to your email!');
+      const toastId = toast.loading('Sending link to your email');
       await client.auth.signInWithOtp({
         email: email,
       });
