@@ -10,7 +10,7 @@ function Nav({ isSession }: { isSession: boolean }) {
   };
 
   const logout = async () => {
-    toast.loading('Loging Out');
+    toast.success('Loging Out');
     await client.auth.signOut();
   };
 

@@ -22,7 +22,7 @@ function Login() {
   };
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 p-10">
+      <div className="flex items-center justify-center min-h-screen bg-gray-900 lg:p-10">
         <div className="max-w-md w-full p-8 bg-gray-100 rounded-md shadow-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Login</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
