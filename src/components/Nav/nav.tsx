@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { client } from '../../supabase/client';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Nav({ isSession }: { isSession: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
+    toast.loading('Loging Out');
     setIsOpen(!isOpen);
   };
 
@@ -91,6 +93,7 @@ function Nav({ isSession }: { isSession: boolean }) {
           </div>
         </div>
       )}
+      <Toaster />
     </nav>
   );
 }
