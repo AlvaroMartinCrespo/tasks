@@ -6,11 +6,11 @@ function Nav({ isSession }: { isSession: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
-    toast.loading('Loging Out');
     setIsOpen(!isOpen);
   };
 
   const logout = async () => {
+    toast.loading('Loging Out');
     await client.auth.signOut();
   };
 
