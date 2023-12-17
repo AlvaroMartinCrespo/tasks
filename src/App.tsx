@@ -20,17 +20,17 @@ function App() {
 
   return (
     <>
-      <Main isSession={isSession} title="Tasks">
-        <section>
-          {sessionState.access_token ? (
+      <section>
+        {sessionState.access_token ? (
+          <Main isSession={isSession} title="Tasks">
             <Tasks session={sessionState} />
-          ) : (
-            <>
-              <Login />
-            </>
-          )}
-        </section>
-      </Main>
+          </Main>
+        ) : (
+          <>
+            <Login />
+          </>
+        )}
+      </section>
     </>
   );
 }

@@ -13,8 +13,8 @@ function Nav({ isSession }: { isSession: boolean }) {
   };
 
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4">
+    <nav className="bg-gray-900">
+      <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
@@ -28,7 +28,7 @@ function Nav({ isSession }: { isSession: boolean }) {
               <>
                 <button
                   onClick={logout}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   LogOut
                 </button>
@@ -80,7 +80,7 @@ function Nav({ isSession }: { isSession: boolean }) {
               <>
                 <button
                   onClick={logout}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   LogOut
                 </button>

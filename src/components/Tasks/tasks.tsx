@@ -3,14 +3,47 @@ import { Session } from '@supabase/supabase-js';
 function Tasks({ session }: { session: Session }) {
   return (
     <>
-      <div className="p-5 m-5 border absolute">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => console.log(session.user)}
-        >
-          Imprime User
-        </button>
-      </div>
+      <section className="bg-gray-100 min-h-screen">
+        <div className="max-w-5xl mx-auto py-8 px-4">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="mb-4">
+              <h2 className="text-2xl font-semibold mb-4">Crear Nueva Tarea</h2>
+              <form>
+                <div className="flex items-center mb-4">
+                  <input
+                    type="text"
+                    placeholder="Escribe tu nueva tarea..."
+                    className="w-full border-2 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"
+                  />
+                  <button
+                    type="submit"
+                    className="ml-2 bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+                  >
+                    Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="bg-gray-200 rounded-md p-4">
+                <h3 className="text-lg font-semibold mb-2">Tarea 1</h3>
+                <p className="text-gray-600">Descripción de la Tarea 1...</p>
+                <div className="mt-4 flex justify-end">
+                  <button className="text-red-600 font-semibold hover:text-red-700">Eliminar</button>
+                </div>
+              </div>
+              <div className="bg-gray-200 rounded-md p-4">
+                <h3 className="text-lg font-semibold mb-2">Tarea 2</h3>
+                <p className="text-gray-600">Descripción de la Tarea 2...</p>
+                <div className="mt-4 flex justify-end">
+                  <button className="text-red-600 font-semibold hover:text-red-700">Eliminar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
