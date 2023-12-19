@@ -6,8 +6,9 @@ import { useEffect } from 'react';
 import { Task } from '../../interfaces/interfaces';
 
 function Tasks({ session }: { session: Session }) {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState<string>('');
   const [listOfTasks, setListOfTasks] = useState<Task[]>([]);
+  const [completedTasks, setCompletedTasks] = useState<boolean>(false);
 
   useEffect(() => {
     fetchTasks();
@@ -110,48 +111,72 @@ function Tasks({ session }: { session: Session }) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {listOfTasks.length !== 0 ? (
+              {completedTasks ? (
                 <>
-                  {listOfTasks.map((task: Task) => {
-                    return (
-                      <>
-                        <div className="bg-gray-200 rounded-md p-4">
-                          <p className="text-gray-600">{task.name}</p>
-                          <div className="mt-4 flex justify-end gap-5">
-                            <button
-                              onClick={() => deleteTask(task.id)}
-                              className="text-red-600 font-semibold hover:text-red-700"
-                            >
-                              Delete
-                            </button>
-                            {task.done ? (
-                              <span className="text-green-600 font-semibold">Completed</span>
-                            ) : (
-                              <>
-                                <span className="text-gray-600 font-semibold">Pending</span>
-                                <button
-                                  className="text-green-600 font-semibold hover:text-green-700"
-                                  onClick={() => completeTask(task.id)}
-                                >
-                                  Complete
-                                </button>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      </>
-                    );
-                  })}
+                  <span className="italic text-gray text-xs">Here are the tasks you have completed.</span>
                 </>
               ) : (
-                <span className="text-gray-600 font-semibold text-lg text-center mt-10">No tasks</span>
+                <>
+                  {listOfTasks.length !== 0 ? (
+                    <>
+                      {listOfTasks.map((task: Task) => {
+                        return (
+                          <>
+                            <div className="bg-gray-200 rounded-md p-4">
+                              <p className="text-gray-600">{task.name}</p>
+                              <div className="mt-4 flex justify-end gap-5">
+                                <button
+                                  onClick={() => deleteTask(task.id)}
+                                  className="text-red-600 font-semibold hover:text-red-700"
+                                >
+                                  Delete
+                                </button>
+                                {task.done ? (
+                                  <span className="text-green-600 font-semibold">Completed</span>
+                                ) : (
+                                  <>
+                                    <span className="text-gray-600 font-semibold">Pending</span>
+                                    <button
+                                      className="text-green-600 font-semibold hover:text-green-700"
+                                      onClick={() => completeTask(task.id)}
+                                    >
+                                      Complete
+                                    </button>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <span className="italic text-gray text-xs">No tasks</span>
+                  )}
+                </>
               )}
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">
-                Show complete task
-              </button>
+              {completedTasks ? (
+                <>
+                  <button
+                    onClick={() => setCompletedTasks(!completedTasks)}
+                    className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+                  >
+                    Show tasks
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setCompletedTasks(!completedTasks)}
+                    className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+                  >
+                    Show complete task
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
