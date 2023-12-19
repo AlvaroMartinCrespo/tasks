@@ -31,4 +31,5 @@ export const defaultTask: Task = {
   id: 0,
   name: '',
   user_id: 0,
+  done: false,
 };
