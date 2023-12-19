@@ -4,7 +4,7 @@ import Login from './components/Login/login';
 import { client } from './supabase/client';
 import { useState } from 'react';
 import Tasks from './components/Tasks/tasks';
-import sessionDefault from './interfaces/defaultConst';
+import { sessionDefault } from './interfaces/defaultConst';
 
 function App() {
   const [sessionState, setSessionState] = useState(sessionDefault);

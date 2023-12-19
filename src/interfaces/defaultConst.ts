@@ -1,5 +1,6 @@
 import { Session } from '@supabase/supabase-js';
 import { User } from '@supabase/gotrue-js';
+import { Task } from './interfaces';
 
 const userDefault: User = {
   id: '',
@@ -15,7 +16,7 @@ const userDefault: User = {
   updated_at: '',
 };
 
-const sessionDefault: Session = {
+export const sessionDefault: Session = {
   provider_token: undefined,
   provider_refresh_token: undefined,
   access_token: '',
@@ -26,4 +27,8 @@ const sessionDefault: Session = {
   user: userDefault,
 };
 
-export default sessionDefault;
+export const defaultTask: Task = {
+  id: 0,
+  name: '',
+  user_id: 0,
+};
