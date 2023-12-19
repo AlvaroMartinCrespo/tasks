@@ -114,41 +114,63 @@ function Tasks({ session }: { session: Session }) {
               {completedTasks ? (
                 <>
                   <span className="italic text-gray text-xs">Here are the tasks you have completed.</span>
+                  {listOfTasks
+                    .filter((task: Task) => {
+                      return task.done;
+                    })
+                    .map((task: Task) => {
+                      return (
+                        <div className="bg-gray-200 rounded-md p-4">
+                          <p className="text-gray-600">{task.name}</p>
+                          <div className="mt-4 flex justify-end gap-5">
+                            <button
+                              onClick={() => deleteTask(task.id)}
+                              className="text-red-600 font-semibold hover:text-red-700"
+                            >
+                              Delete
+                            </button>
+                            <span className="text-green-600 font-semibold">Completed</span>
+                          </div>
+                        </div>
+                      );
+                    })}
                 </>
               ) : (
                 <>
                   {listOfTasks.length !== 0 ? (
                     <>
-                      {listOfTasks.map((task: Task) => {
-                        return (
-                          <>
-                            <div className="bg-gray-200 rounded-md p-4">
-                              <p className="text-gray-600">{task.name}</p>
-                              <div className="mt-4 flex justify-end gap-5">
-                                <button
-                                  onClick={() => deleteTask(task.id)}
-                                  className="text-red-600 font-semibold hover:text-red-700"
-                                >
-                                  Delete
-                                </button>
-                                {task.done ? (
-                                  <span className="text-green-600 font-semibold">Completed</span>
-                                ) : (
-                                  <>
-                                    <span className="text-gray-600 font-semibold">Pending</span>
-                                    <button
-                                      className="text-green-600 font-semibold hover:text-green-700"
-                                      onClick={() => completeTask(task.id)}
-                                    >
-                                      Complete
-                                    </button>
-                                  </>
-                                )}
+                      {listOfTasks
+                        .filter((task: Task) => !task.done)
+                        .map((task: Task) => {
+                          return (
+                            <>
+                              <div className="bg-gray-200 rounded-md p-4">
+                                <p className="text-gray-600">{task.name}</p>
+                                <div className="mt-4 flex justify-end gap-5">
+                                  <button
+                                    onClick={() => deleteTask(task.id)}
+                                    className="text-red-600 font-semibold hover:text-red-700"
+                                  >
+                                    Delete
+                                  </button>
+                                  {task.done ? (
+                                    <span className="text-green-600 font-semibold">Completed</span>
+                                  ) : (
+                                    <>
+                                      <span className="text-gray-600 font-semibold">Pending</span>
+                                      <button
+                                        className="text-green-600 font-semibold hover:text-green-700"
+                                        onClick={() => completeTask(task.id)}
+                                      >
+                                        Complete
+                                      </button>
+                                    </>
+                                  )}
+                                </div>
                               </div>
-                            </div>
-                          </>
-                        );
-                      })}
+                            </>
+                          );
+                        })}
                     </>
                   ) : (
                     <span className="italic text-gray text-xs">No tasks</span>
