@@ -113,7 +113,7 @@ function Tasks({ session }: { session: Session }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {completedTasks ? (
                 <>
-                  <span className="italic text-gray text-xs">Here are the tasks you have completed.</span>
+                  <span className="italic text-gray text-xs w-full">Here are the tasks you have completed.</span>
                   {listOfTasks
                     .filter((task: Task) => {
                       return task.done;
