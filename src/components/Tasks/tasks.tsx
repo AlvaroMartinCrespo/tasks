@@ -1,6 +1,15 @@
 import { Session } from '@supabase/supabase-js';
+import { useState } from 'react';
+import { client } from '../../supabase/client';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Tasks({ session }: { session: Session }) {
+  const [tast, setTask] = useState('');
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // client.from('tasks');
+  };
+
   return (
     <>
       <section className="bg-gray-100 min-h-screen">
@@ -9,12 +18,13 @@ function Tasks({ session }: { session: Session }) {
             <span className="text-gray text-xs">Welcome, {session.user.email}</span>
             <div className="mb-4">
               <h2 className="text-2xl font-semibold mb-4">Create new Task</h2>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="flex items-center mb-4">
                   <input
                     type="text"
                     placeholder="Text a new task ..."
                     className="w-full border-2 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"
+                    onChange={(e) => setTask(e.target.value)}
                   />
                   <button
                     type="submit"
@@ -49,6 +59,7 @@ function Tasks({ session }: { session: Session }) {
             </div>
           </div>
         </div>
+        <Toaster />
       </section>
     </>
   );
