@@ -22,25 +22,25 @@ function Login() {
   };
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 lg:p-10">
-        <div className="max-w-md w-full p-8 bg-gray-100 rounded-md shadow-md">
-          <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Login</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
+      <div className="flex items-center justify-center min-h-screen bg-gray-900 p-10">
+        <div className="max-w-md w-full p-4 lg:p-8 bg-gray-100 rounded-md shadow-md">
+          <h2 className="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-center text-gray-800">Login</h2>
+          <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+            <div className="mb-3 lg:mb-4">
+              <label htmlFor="email" className="block text-sm lg:text-base font-semibold text-gray-700 mb-1">
                 Email
               </label>
               <div className="relative">
                 <input
                   type="email"
                   id="email"
-                  className="w-full border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-indigo-500 text-sm placeholder-gray-500 bg-gray-200"
+                  className="w-full border-2 border-gray-300 rounded-md px-3 lg:px-4 py-2 lg:py-3 focus:outline-none focus:border-indigo-500 text-sm lg:text-base placeholder-gray-500 bg-gray-200"
                   placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <div className="absolute top-0 right-0 -mt-px pt-2 pr-3">
+                <div className="absolute top-0 right-0 -mt-px pt-2 pr-3 lg:pt-3 lg:pr-4">
                   <svg
-                    className="h-6 w-6 text-gray-400"
+                    className="h-5 lg:h-6 w-5 lg:w-6 text-gray-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ function Login() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="w-full md:w-auto bg-indigo-500 text-white px-6 py-3 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600 text-lg font-semibold tracking-wide"
+                className="w-full lg:w-auto bg-indigo-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600 text-base lg:text-lg font-semibold tracking-wide"
               >
                 Log in
               </button>
